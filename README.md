@@ -1,5 +1,12 @@
 # Facial Keypoints Detection
 
+## Installation
+Script is tested on Python 3.6.1. To install required libraries run:
+
+```
+pip install -r requirements.txt
+```
+
 ## Train data
 Data is expected to be a set of face photos and CSV file where each row represents coordinates `(xi, yi)` of facial keypoints for image `filename`:
 

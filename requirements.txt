@@ -1,0 +1,7 @@
+pandas==0.20.3
+scikit_image==0.13.0
+Keras==2.0.8
+tqdm==4.17.0
+click==6.7
+numpy==1.13.1
+skimage==0.0
