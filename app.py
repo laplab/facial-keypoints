@@ -32,7 +32,7 @@ def augment(img_dir, coords_file, dest_dir):
     ]
 
     coords_gen = []
-    for filename in tqdm(list(coords_old.keys())[:10]):
+    for filename in tqdm(coords_old.keys(), desc='Augmenting data'):
         old_img = imread(join(img_dir, filename), as_grey=True)
         old_points = coords_old[filename]
 
@@ -61,11 +61,10 @@ def train(img_dir, coords_file, model_file):
     csv file and saves trained model in hdf5 file MODEL
     """
     coords = read_coords(coords_file)
-    files = list(coords.keys())
 
     X = []
     y = []
-    for filename in files[:5]:
+    for filename in tqdm(coords.keys(), desc='Reading data'):
         img = imread(join(img_dir, filename), as_grey=True)
         points = coords[filename]
 
@@ -100,7 +99,7 @@ def predict(img_dir, model_file, coords_file):
     X = []
     x_ratio = []
     y_ratio = []
-    for img_path in Path(img_dir).iterdir():
+    for img_path in tqdm(Path(img_dir).iterdir(), desc='Performing inference'):
         if not img_path.is_file():
             continue
 
